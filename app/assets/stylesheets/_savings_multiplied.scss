@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+
 header, footer {
   ul {
     li {
@@ -6,8 +8,13 @@ header, footer {
   }
 }
 
+h2 {
+  font-family: 'Arvo', serif;
+}
+
 #devise_navigation {
-  float: right;
+  text-align: right;
+  margin: 20px;
 }
 
 #devise_navigation li {
@@ -15,6 +22,26 @@ header, footer {
   padding: 6px;
 }
 
+#top_half {
+  h2 {
+    font-size: 1.8em;
+    text-align: right;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 37%;
+    color: rgb(147, 202, 207);
+    display: inline;
+  }
+}
+
+body{
+  background-color: rgb(221,240,240);
+}
+
+#bottom_half {
+  background-color: rgb(147,202,208)
+}
 
 #devise_navigation li:first-child {
   border-right: 2px solid black;
@@ -41,5 +68,116 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
     .left-column, .right-column {
       @include grid-column(12);
     }
+  }
+}
+
+#home_search {
+  input {
+    width: 100px;
+    border-radius: 50px;
+    background-image: asset-data-url('search-icon.png');
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    padding: 7px 5px 8px 30px;
+    border: 2px solid rgb(217,138,195);
+  }
+  form {
+    display: inline-block;
+  }
+}
+
+#main_navigation {
+  background-color: rgb(233,201,210);
+  margin: auto;
+  height: 50px;
+  text-align:center;
+  padding-top: 5px;
+  width: 100%;
+  font-family: 'Arvo', serif;
+  ul {
+    text-align: center;
+  }
+  li {
+    display: inline;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0px 3%;
+  }
+  a {
+    color: rgb(93,28,71);
+    font-size: 24px;
+  }
+}
+
+.auction_search_search_term{
+  display: inline-block;
+  label {
+    display: none;
+  }
+}
+
+.nav_button {
+  text-decoration: none;
+  border-radius: 20px;
+  line-height: normal;
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+#page_navigation {
+  float: right;
+  margin-top: 60px;
+  margin-right: 20px;
+  a{
+    color:white;
+  }
+  li:nth-child(1){
+    @extend .nav_button;
+    background-color: rgb(147, 202, 207);
+  }
+  li:nth-child(2){
+    @extend .nav_button;
+    background-color: rgb(153, 182, 62);
+  }
+  li:nth-child(3){
+    @extend .nav_button;
+    background-color: rgb(98, 48, 138);
+  }
+  li:nth-child(4){
+    @extend .nav_button;
+    background-color: rgb(202, 35, 137);
+  }
+}
+
+#top_half_container {
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 100px;
+  border-radius: 50px 50px 0px 0px;
+}
+
+#bottom_half_container {
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 0px 0px 50px 50px;
+}
+
+#main_logo {
+  position: relative;
+  top: -28px;
+  display: inline;
+}
+
+#child_images {
+  padding-top :15px;
+  padding-bottom :15px;
+  img {
+    margin: 6px;
   }
 }
