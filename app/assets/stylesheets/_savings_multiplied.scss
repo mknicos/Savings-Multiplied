@@ -1,5 +1,29 @@
 @import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
 
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
 header, footer {
   ul {
     li {
@@ -24,14 +48,10 @@ h2 {
 
 #top_half {
   h2 {
-    font-size: 1.8em;
-    text-align: right;
+    font-size: 1.4em;
     margin-bottom: 0px;
     margin-top: 0px;
-    margin-right: 10px;
-    margin-left: 37%;
     color: rgb(147, 202, 207);
-    display: inline;
   }
 }
 
@@ -60,20 +80,14 @@ body{
   }
 }
 
+
 $small-range: (0em, 30em); /* 0, 640px */
 $small-only: "#{$screen} and (max-width: 40em)" !default;
 
-@media #{$small-only} {
-  #content {
-    .left-column, .right-column {
-      @include grid-column(12);
-    }
-  }
-}
 
 #home_search {
   input {
-    width: 100px;
+    width: 60%;
     border-radius: 50px;
     background-image: asset-data-url('search-icon.png');
     background-repeat: no-repeat;
@@ -82,23 +96,26 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
     border: 2px solid rgb(217,138,195);
   }
   form {
-    display: inline-block;
+    display: block;
   }
 }
 
 #main_navigation {
+  @include flexbox();
+  list-style: none;
   background-color: rgb(233,201,210);
-  margin: auto;
-  height: 50px;
+  margin: 0;
   text-align:center;
   padding-top: 5px;
-  width: 100%;
   font-family: 'Arvo', serif;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
   ul {
     text-align: center;
   }
   li {
-    display: inline;
+    display: block;
     font-weight: bold;
     text-decoration: none;
     margin: 0px 3%;
@@ -106,6 +123,7 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
   a {
     color: rgb(93,28,71);
     font-size: 24px;
+    display: block;
   }
 }
 
@@ -116,12 +134,52 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
   }
 }
 
+@media #{$small-only} {
+  #content {
+    .left-column, .right-column {
+      @include grid-column(12);
+    }
+  }
+  #page_navigation {
+    ul{
+      width: 90%;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+    li {
+      width: 50%;
+      border-radius: 0px;
+    }
+  }
+  #main_navigation {
+    li {
+      width: 100%;
+      border-bottom: 1px solid rgb(217,138,195);
+    }
+    li:nth-child(6){
+      height: 10%;
+      input{
+        margin: auto;
+      }
+    }
+  }
+  #main_logo {
+    img {
+      width:80%;
+    }
+    #contain_h2 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
 .nav_button {
   text-decoration: none;
   border-radius: 20px;
   line-height: normal;
   display: inline-block;
-  width: 150px;
+  width: 20%;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -132,6 +190,7 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
   float: right;
   margin-top: 60px;
   margin-right: 20px;
+  width: 56%;
   a{
     color:white;
   }
@@ -155,23 +214,28 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
 
 #top_half_container {
   background-color: white;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8%;
   border-radius: 50px 50px 0px 0px;
+  width: 80%;
 }
 
 #bottom_half_container {
   background-color: white;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 0px 0px 50px 50px;
+  width: 80%;
 }
 
 #main_logo {
   position: relative;
   top: -28px;
   display: inline;
+  img {
+    width: 40%;
+  }
 }
 
 #child_images {
@@ -180,4 +244,34 @@ $small-only: "#{$screen} and (max-width: 40em)" !default;
   img {
     margin: 6px;
   }
+  margin-bottom: 10%;
+}
+
+#contain_h2 {
+  width: 58%;
+  float: right;
+}
+
+.clear {
+  clear: both;
+  width: 100%;
+}
+
+#content {
+  h2 {
+    font-size: 1.6em;
+    color: rgb(162, 180, 63);
+  }
+  h3 {
+    font-size: 1.1em;
+    color: rgb(155,198, 204);
+    float: right;
+  }
+}
+
+#shop_now a{
+  background-color: rgb(172, 48, 135);
+  border: none;
+  border-radius: 50px;
+  float: right;
 }

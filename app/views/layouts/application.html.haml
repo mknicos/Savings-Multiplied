@@ -34,7 +34,9 @@
             %li= link_to "Contact", "/pages/contact"
             %li= link_to "Blog", "/pages/blog"
             %li= link_to "Press", "/pages/press"
-          %h2 where parents of multiples save, sell &amp; share
+          #contain_h2
+            %h2 where parents of multiples save, sell &amp; share
+          .clear
       %ul#main_navigation
         %li= link_to "Buy", auctions_path
         %li= link_to "Sell", new_auction_path
@@ -42,6 +44,7 @@
         %li= link_to "Links", "/pages/links"
         %li= link_to "Community", "/pages/community"
         %li#home_search= render partial: "auction_searches/search_term_form"
+    .clear
     #bottom_half
       #bottom_half_container
         #content
